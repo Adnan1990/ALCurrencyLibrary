@@ -49,6 +49,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -Utility Method
+
+-(BOOL)isEmptyString:(NSString*)string
+{
+    NSString *tempString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    if([tempString length] == 0)
+        return YES;
+    
+    return NO;
+}
+
+#pragma mark -IBAction
 - (IBAction)convert:(id)sender {
     // Start converting
     [ALCurrency convertFromCurrency:self.from toCurrency:self.to value:[self.txtValue.text floatValue] completionBlock:^(BOOL success, CGFloat convertedValue) {
@@ -69,6 +82,11 @@
         self.from = [self.currencies objectAtIndex:row];
     } else {
         self.to = [self.currencies objectAtIndex:row];
+    }
+
+    if (![self isEmptyString:self.txtValue.text])
+    {
+        [self convert:nil];
     }
 }
 

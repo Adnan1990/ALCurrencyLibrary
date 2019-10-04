@@ -8,7 +8,8 @@
 
 #import "ALCLHTTPClient.h"
 
-#define kBaseURL @"http://rate-exchange.appspot.com/"
+//#define kBaseURL @"http://rate-exchange.appspot.com/"
+#define kBaseURL @"https://rate-exchange-1.appspot.com/"
 
 @implementation ALCLHTTPClient
 
